@@ -14,5 +14,6 @@ class MazePrototypeFactory(
 
     override fun makeDoor(r1: Room, r2: Room): Door {
 
+        return Door(r1, r2)
     }
 }

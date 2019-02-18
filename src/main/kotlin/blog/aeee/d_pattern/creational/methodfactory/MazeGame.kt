@@ -1,6 +1,5 @@
 package blog.aeee.d_pattern.creational.methodfactory
 
-import apple.laf.JRSUIConstants
 import blog.aeee.d_pattern.maze.define.Direction
 import blog.aeee.d_pattern.maze.map.Door
 import blog.aeee.d_pattern.maze.map.Maze
@@ -10,10 +9,10 @@ import blog.aeee.d_pattern.maze.map.Wall
 class MazeGame{
 
     //factory methods
-    fun makeMaze(): Maze{}
-    fun makeRoom(roomNo: Int): Room{}
-    fun makeWall(): Wall{}
-    fun makeDoor(r1: Room, r2: Room): Door{}
+    fun makeMaze(): Maze{ return Maze() }
+    fun makeRoom(roomNo: Int): Room{ return Room(roomNo)}
+    fun makeWall(): Wall{ return Wall() }
+    fun makeDoor(r1: Room, r2: Room): Door{ return Door(r1, r2) }
 
     fun createMaze(): Maze{
         val maze = makeMaze()
@@ -34,5 +33,7 @@ class MazeGame{
         room2.setSide(Direction.East, makeWall())
         room2.setSide(Direction.South, makeWall())
         room2.setSide(Direction.West, door1_2)
+
+        return maze;
     }
 }
